@@ -13,11 +13,22 @@ addTaskBtn.addEventListener("click", function () {
 
     const li = document.createElement("li");
 
-    li.textContent = taskText;
+    const taskSpan = document.createElement("span");
+    taskSpan.textContent = taskText;
 
-    li.addEventListener("click", function () {
-        li.style.textDecoration = "line-through";
+    taskSpan.addEventListener("click", function () {
+        taskSpan.style.textDecoration = "line-through";
     });
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete";
+
+    deleteBtn.addEventListener("click", function () {
+        li.remove();
+    });
+
+    li.appendChild(taskSpan);
+    li.appendChild(deleteBtn);
 
     taskList.appendChild(li);
 
